@@ -193,6 +193,15 @@ class ActivityLogger
         }
     }
 
+    public function withBeforeAndAfter(string $before, string $after)
+    {
+        $activity         = $this->getActivity();
+        $activity->before = $before;
+        $activity->after  = $after;
+
+        return $this;
+    }
+
     protected function replacePlaceholders(string $description, ActivityContract $activity): string
     {
         return preg_replace_callback('/:[a-z0-9._-]+(?<![.])/i', function ($match) use ($activity) {
