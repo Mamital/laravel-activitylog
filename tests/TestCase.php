@@ -2,6 +2,7 @@
 
 namespace Spatie\Activitylog\Test;
 
+use AddBeforeAfterColumnActivityLogTable;
 use AddBatchUuidColumnToActivityLogTable;
 use AddEventColumnToActivityLogTable;
 use CreateActivityLogTable;
@@ -63,6 +64,7 @@ abstract class TestCase extends OrchestraTestCase
         (new CreateActivityLogTable())->up();
         (new AddEventColumnToActivityLogTable())->up();
         (new AddBatchUuidColumnToActivityLogTable())->up();
+        (new AddBeforeAfterColumnActivityLogTable())->up();
     }
 
     protected function createTables(...$tableNames): void
